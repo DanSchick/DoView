@@ -5,7 +5,7 @@ require_once('lib/custom-functions.php');
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Petr - People Helping Pets</title>
+        <title>DoView</title>
         <meta charset="utf-8">
         <meta name="author" content="Seal Team 6">
         <meta name="description" content="Registration">
