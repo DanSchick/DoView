@@ -9,8 +9,13 @@ include "top.php";
 
 
 if($_GET){
-    print '<p>flag</p>';
-    $courseCode = $_GET['name'];
+    foreach($_GET as $class){
+        $q = "INSERT INTO `DSCHICK_Registration`.`tblStudentCourses` (`fnkNetID`, `fnkCourseId`) VALUES (?, ?)";
+        $data = array($username, $class);
+        print_r($data);
+        $insert = $thisDatabaseWriter->insert($q, $data, 0, 0, 0);
+
+    }
     $q = "SELECT * FROM tblCourses WHERE fnkCourseId = ?";
     $data = array($courseCode);
     $select = $thisDatabaseReader->select($q, $data, 1, 0);
@@ -66,7 +71,7 @@ $(document).ready(function() {
     $('#addsection').click(function(){
         counter += 1;
         if(counter <= 5){
-            var appendStr = 'Class Code: <input type="text" name="name' + 'counter" value=""><br>';
+            var appendStr = 'Class Code: <input type="text" name="name' + counter + '" value=""><br>';
             $('.wrapper').append(appendStr);
         } else if(printErr == 1){
             printErr = 0;
@@ -74,7 +79,6 @@ $(document).ready(function() {
         }
 
     });
-
 
 
 });
