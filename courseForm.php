@@ -23,15 +23,8 @@ if($_GET){
     $select = $thisDatabaseReader->select($q, $data, 1, 0);
 
 }
-?><header>
-<img src="doView_4.png" alt="logo" style="width:220px">
-<link rel="shortcut icon" href="doView_3.png">
-</header>
-
-<article>
-<link href='courseform.css' rel='stylesheet' type='text/css' media='screen' title='professional'/>
-<body>
-
+?>
+<img src="doView_4.png">
 <form>
 
     <div id="sections">

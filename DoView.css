@@ -1,3 +1,5 @@
+/*reset CSS*/
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -47,6 +49,62 @@ table {
 	border-spacing: 0;
 }
 
+/*end reset CSS*/
+
+body {
+
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: .5s;
+    -moz-animation-delay: .5s;
+    animation-delay: .5s;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    color: #6a6a6a;
+
+}
+
+form {
+    text-align: center;
+    padding-left: 40px;
+}
+
+fieldset {
+    border-style: none;
+}
+
+legend {
+    text-align: center;
+}
+
+.button {
+   font-family: 'Roboto', sans-serif;
+}
+
+#course {
+    padding-left: 40px;
+}
+
+input {
+    width: 50px;
+}
+
+.course {
+    padding-left: 40px;
+}
+
+
+/*header CSS*/
 .nav-wrap {
     width: 100vw;
     background-color: #92bd3f;
@@ -78,3 +136,76 @@ nav ol li a {
     text-decoration: none;
     color: #fff;
 }
+
+header img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+/*end header CSS*/
+
+
+/*Schedule.php body level style*/
+
+body#schedule {
+    margin-top: 0px!important;
+}
+
+/**/
+
+
+/*Schedule.php hero div CSS*/
+.hero-bar img {
+    width: 167px;
+    float: left;
+}
+
+.hero-bar {padding: 12px 28px 15px 28px;text-align: center;height: 90px;}
+
+.internal-nav {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ec9123;
+    font-size: 18px;
+    margin-top: 26px;
+}
+
+.internal-nav a {
+    display: inline-block;
+    color: #ec9123;
+    text-decoration: none;
+    font-family: sans-serif;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.internal-nav p {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+.week {
+    clear: both;
+    width: 100%;
+    background-color: #fffdee;
+}
+/*end hero CSS*/
+
+/*Start Schedule CSS*/
+
+.TitleInfo {
+    display: none;
+}
+
+.Monday, .Tuesday, .Wednesday, .Thursday, .Friday {
+    display: inline-block;
+    text-align: center;
+    width: 240px;
+    border-left: 1px solid #ec9123;
+    border-right: 1px solid #ec9123;
+}
+
+/*end Schedule CSS*/

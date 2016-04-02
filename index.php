@@ -1,11 +1,15 @@
 <?php
 include "top.php";
 
-$test = "SELECT * FROM tblCourses INNER JOIN tblStudentCourses ON tblCourses.fnkCourseId = tblStudentCourses.fnkCourseId WHERE tblStudentCourses.fnkNetId = 'dschick'";
-print "<pre>";
-// $data = array("%CS124%");
-$select = $thisDatabaseReader->select($test, 0, 1, 0, 2);
+// $test = "SELECT * FROM tblCourses INNER JOIN tblStudentCourses ON tblCourses.fnkCourseId = tblStudentCourses.fnkCourseId WHERE tblStudentCourses.fnkNetId = 'dschick'";
+// print "<pre>";
+// // $data = array("%CS124%");
+// $select = $thisDatabaseReader->select($test, 0, 1, 0, 2);
 
+    $test = "SELECT * FROM tblCourses INNER JOIN tblStudentCourses ON tblCourses.fnkCourseId = tblStudentCourses.fnkCourseId WHERE tblStudentCourses.fnkNetId = ?";
+    $data = array($username);
+
+    $select = $thisDatabaseReader->select($test, $data, 1, 0, 0, 0);
 
 var_dump($select);
 print "</pre>";
