@@ -1,22 +1,6 @@
-<?php
-include "lib/constants.php";
-require_once('lib/custom-functions.php');
-?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>DoView</title>
-        <meta charset="utf-8">
-        <meta name="author" content="Seal Team 6">
-        <meta name="description" content="Registration">
-
-
-        <!--[if lt IE 9]>
-        <script src="//html5shim.googlecode.com/sin/trunk/html5.js"></script>
-        <![endif]-->
-
-
-        <?php
+    <?php
+        // we have to import top.php, but only the parts that don't print HTML.
+        // Otherwise, returning data to the AJAX call won't work.
         $debug = false;
 
         // %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
@@ -30,14 +14,18 @@ require_once('lib/custom-functions.php');
         //     www-logs
         //     www-root
 
+        include "lib/constants.php";
+        require_once('lib/custom-functions.php');
 
         $includeDBPath = "../bin/";
         $includeLibPath = "../lib/";
 
 
-        //require_once($includeLibPath . 'mailMessage.php');
+        require_once($includeLibPath . 'mailMessage.php');
 
-        require_once('lib/Database.php');
+        require_once('lib/security.php');
+
+        require_once($includeDBPath . 'Database.php');
 
         // %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
         //
@@ -91,41 +79,53 @@ require_once('lib/custom-functions.php');
 
         // %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
         //
+        // Process security check.
+        //
+
+        if (!securityCheck($path_parts, $yourURL)) {
+            print "<p>Login failed: " . date("F j, Y") . " at " . date("h:i:s") . "</p>\n";
+            die("<p>Sorry you cannot access this page. Security breach detected and reported</p>");
+        }
+
+        // %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
+        //
         // Set up database connection
         //
 
-        $dbUserName = 'dschick_reader';
+        $dbUserName = get_current_user() . '_reader';
         $whichPass = "r"; //flag for which one to use.
         $dbName = DATABASE_NAME;
 
         $thisDatabaseReader = new Database($dbUserName, $whichPass, $dbName);
 
-        $dbUserName = 'dschick_writer';
+        $dbUserName = get_current_user() . '_writer';
         $whichPass = "w";
         $thisDatabaseWriter = new Database($dbUserName, $whichPass, $dbName);
 
-        $dbUserName = 'dschick_admin';
-        $whichPass = "a";
-        $thisDatabaseAdmin = new Database($dbUserName, $whichPass, $dbName);
-        if ($path_parts['filename'] == "profileUpdate") {
-            include "lib/validation-functions.php";
-        }
-        ?>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- JQUERY -->
-        <script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
-        <script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
 
 
 
-    </head>
 
-    <!-- **********************     Body section      ********************** -->
-    <?php
-    //$username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
-    print '<body id="' . $path_parts['filename'] . '">';
 
-    ?>
+if(isset($_GET['term'])){
+    $return_arr = array();
+    $term = '%' + $_GET['term'] + '%';
+    $search = "SELECT CONCAT(fnkCourseId, ' ', fldCourseName) as FullName FROM tblCourses WHERE FullName LIKE ?";
+    $data = array($term);
+    $query = $thisDatabaseReader->select($test, $data, 1, 0, 4);
+
+    foreach ($query[0] as $class){
+        array_push($class)
+
+    }
+    echo json_encode($return_arr);
+}
+
+
+
+
+
+
+
 
 
