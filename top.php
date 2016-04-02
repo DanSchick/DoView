@@ -107,9 +107,7 @@ require_once('lib/custom-functions.php');
         $dbUserName = 'dschick_admin';
         $whichPass = "a";
         $thisDatabaseAdmin = new Database($dbUserName, $whichPass, $dbName);
-        if ($path_parts['filename'] == "profileUpdate") {
-            include "lib/validation-functions.php";
-        }
+        include "lib/validation-functions.php";
         ?>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -123,8 +121,9 @@ require_once('lib/custom-functions.php');
 
     <!-- **********************     Body section      ********************** -->
     <?php
-    //$username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
-    print '<body id="' . $path_parts['filename'] . '">';
+    $username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
+    print($username);
+    //print '<body id="' . $path_parts['filename'] . '">';
 
     ?>
 

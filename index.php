@@ -7,7 +7,7 @@ print "<p>Test</p>";
 $data = array("%CS124%");
 $select = $thisDatabaseReader->select($test, $data, 1, 0, 4);
 
-print_r($select);
+var_dump($select);
 print "</pre>";
 
 ?>
