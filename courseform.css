@@ -1,0 +1,58 @@
+header img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+body {
+    margin-top: 10%;
+    
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: .5s;
+    -moz-animation-delay: .5s;
+    animation-delay: .5s;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    color: #6a6a6a;
+    
+}
+
+form {
+    text-align: center;
+    padding-left: 40px;
+}
+
+fieldset {
+    border-style: none;
+}
+
+legend {
+    text-align: center;
+}
+
+.button {
+   font-family: 'Roboto', sans-serif; 
+}
+
+#course {
+    padding-left: 40px;
+}
+
+input {
+    width: 50px;
+}
+
+.course {
+    padding-left: 40px;
+}
