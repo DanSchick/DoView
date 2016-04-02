@@ -14,8 +14,8 @@ require_once('lib/custom-functions.php');
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <link rel="stylesheet" href="reset.css" type="text/css" media="screen">
-        <link rel="stylesheet" href="courseform.css" type="text/css" media="screen">
-        <link rel="stylesheet" href="DoView.css" type="text/css" media="screen" title="screen">
+        <link rel="stylesheet" href="custom.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="DoView.css" type="text/css" media="screen" title="creative">
 
         <!--[if lt IE 9]>
         <script src="//html5shim.googlecode.com/sin/trunk/html5.js"></script>

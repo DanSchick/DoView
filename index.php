@@ -1,16 +1,26 @@
 <?php
 include "top.php";
 
-$test = "SELECT CONCAT(fnkCourseId, ' ', fldCourseName) as FullName FROM tblCourses WHERE CONCAT(fnkCourseId, ' ', fldCourseName) LIKE ?";
+$test = "SELECT * FROM tblCourses INNER JOIN tblStudentCourses ON tblCourses.fnkCourseId = tblStudentCourses.fnkCourseId WHERE tblStudentCourses.fnkNetId = 'dschick'";
 print "<pre>";
-print "<p>Test</p>";
-$data = array("%CS124%");
-$select = $thisDatabaseReader->select($test, $data, 1, 0, 4);
+// $data = array("%CS124%");
+$select = $thisDatabaseReader->select($test, 0, 1, 0, 2);
+
 
 var_dump($select);
 print "</pre>";
 
+
+
 ?>
+
+<div class='contain'>
+    <div class='c2'>
+        <div class'c3'>
+        </div>
+    </div>
+</div>
+
 
 <form action='' method='post'>
         <p><label>Class:</label><input type='text' name='className' value='' class='auto'></p>
@@ -18,6 +28,16 @@ print "</pre>";
 <div id='append'></div>
 
 <script type="text/javascript">
+
+$(document).ready(function() {
+    var selectArr = <?php echo json_encode($select);?>;
+    console.log(selectArr);
+
+    for(var i=0;i<selectArr.length;i++){
+
+    }
+
+});
 
 
 $(function() {
@@ -33,6 +53,7 @@ $(function() {
         minLength: 1,
         appendTo: "#append"
     });
+
 });
 
 

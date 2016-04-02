@@ -5,15 +5,17 @@ include "top.php";
 
 
 
-
-
-
 if($_GET){
+    $delete = "DELETE FROM tblStudentCourses WHERE fnkNetId = ?";
+    $data = array($username);
+    $del = $thisDatabaseWriter->delete($delete, $data, 1, 0);
     foreach($_GET as $class){
-        $q = "INSERT INTO `DSCHICK_Registration`.`tblStudentCourses` (`fnkNetID`, `fnkCourseId`) VALUES (?, ?)";
-        $data = array($username, $class);
-        print_r($data);
-        $insert = $thisDatabaseWriter->insert($q, $data, 0, 0, 0);
+        if($class != "Enter"){
+            $q = "INSERT INTO `DSCHICK_Registration`.`tblStudentCourses` (`fnkNetID`, `fnkCourseId`) VALUES (?, ?)";
+            $data = array($username, $class);
+            print_r($data);
+            $insert = $thisDatabaseWriter->insert($q, $data, 0, 0, 0);
+        }
 
     }
     $q = "SELECT * FROM tblCourses WHERE fnkCourseId = ?";
