@@ -39,22 +39,30 @@
         for(var j=0;j<days.length;j++){
             console.log("class: " + section[2] + " day: " + days[j] + " start time: " + startTime);
             if(days[j] == 'M'){
-                $('.Monday').find('#mon' + count).find('#' + startTime).append("<p class='classinfo'>" + section[2] + "</p>");
+                $('.Monday').find('#mon' + count).find('#' + startTime).append("<p class='classinfo' id=" + section['fldCRN'] +">" + section[2] + "</p>");
             } else if(days[j] == 'T'){
-                $('.Tuesday').find('#tue' + count).find('#' + startTime).append("<p class='classinfo'>" + section[2] + "</p>");
+                $('.Tuesday').find('#tue' + count).find('#' + startTime).append("<p class='classinfo' id=" + section['fldCRN'] +">" + section[2] + "</p>");
             } else if(days[j] == 'W'){
-                $('.Wednesday').find('#wends' + count).find('#' + startTime).append("<p class='classinfo'>" + section[2] + "</p>");
+                $('.Wednesday').find('#wends' + count).find('#' + startTime).append("<p class='classinfo' id=" + section['fldCRN'] +">" + section[2] + "</p>");
             } else if(days[j] == 'R'){
-                $('.Thursday').find('#thurs' + count).find('#' + startTime).append("<p class='classinfo'>" + section[2] + "</p>");
+                $('.Thursday').find('#thurs' + count).find('#' + startTime).append("<p class='classinfo' id=" + section['fldCRN'] +">" + section[2] + "</p>");
             } else if(days[j] == 'F'){
-                $('.Friday').find('#fri' + count).find('#' + startTime).append("<p class='classinfo'>" + section[2] + "</p>");
+                $('.Friday').find('#fri' + count).find('#' + startTime).append("<p class='classinfo' id=" + section['fldCRN'] +">" + section[2] + "</p>");
             }
 
         }
 
 
     }
+    $('.classinfo').click(function(event){
+        var firstParent = $(event.target).parent();
+        var column = firstParent.parent();
+        var columnId = column.attr('id').slice(-1);
+        console.log(columnId);
+        var CRN = $(event.target).attr('id');
+        console.log($('.mon'+columnId).find("div").find('p').attr('class'));
 
+    });
 });
 </script>
 
@@ -72,6 +80,7 @@
             <h1>Current Week</h1>
         </div>
         <div class="Monday">
+                <h2>Monday</h2>
             <div id="mon1">
                 <div class="c m 1" id="830"></div>
                 <div class="c m 2" id="940"></div>
@@ -134,6 +143,7 @@
             </div>
         </div>
         <div class="Tuesday">
+                <h2>Tuesday</h2>
             <div id="tue1">
                 <div class="c t 1" id="830"></div>
                 <div class="c t 2" id="1005"></div>
@@ -181,6 +191,7 @@
             </div>
         </div>
         <div class="Wednesday">
+                <h2>Wednesday</h2>
             <div id="wends1">
                 <div class="c w 1" id="830"></div>
                 <div class="c w 2" id="940"></div>
@@ -243,6 +254,7 @@
             </div>
         </div>
         <div class="Thursday">
+                <h2>Thursday</h2>
             <div id="thurs1">
                 <div class="c r 1" id="830"></div>
                 <div class="c r 2" id="1005"></div>
@@ -290,6 +302,7 @@
             </div>
         </div>
         <div class="Friday">
+                <h2>Friday</h2>
             <div id="fri1">
                 <div class="c f 1" id="830"></div>
                 <div class="c f 2" id="940"></div>
@@ -351,21 +364,6 @@
                 <div class="c f 10" id="1640"></div>
             </div>
         </div>
-        <div class="Saturday">
-            <div id="colOne"></div>
-            <div id="colTwo"></div>
-            <div id="colThree"></div>
-            <div id="colFour"></div>
-            <div id="colFive"></div>
-        </div>
-        <div class="Sunday">
-            <div id="colOne"></div>
-            <div id="colTwo"></div>
-            <div id="colThree"></div>
-            <div id="colFour"></div>
-            <div id="colFive"></div>
-        </div>
-    </div>
 
     <?php
     include "footer.php";

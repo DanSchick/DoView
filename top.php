@@ -22,6 +22,102 @@ require_once('lib/custom-functions.php');
         <![endif]-->
 
 
+        <!-- ############################################################################# ->
+        <1-- SPIN JS -->
+<!--         <style>
+    #spin {
+        background: #333;
+        color: white;
+        float: left;
+        width: 200px;
+        height: 200px;
+        margin: 0 20px 20px 0;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        }
+    </style>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://fgnass.github.com/spin.js/spin.js"></script>
+    <script type="text/javascript">
+        $.fn.spin = function(opts) {
+            this.each(function() {
+                var $this = $(this),
+                    spinner = $this.data('spinner');
+                if (spinner) spinner.stop();
+                if (opts !== false) {
+                  opts = $.extend({color: $this.css('color')}, opts);
+                  spinner = new Spinner(opts).spin(this);
+                  $this.data('spinner', spinner);
+                }
+            });
+            return this;
+        };
+        $(function() {
+            $(".spinner-link").click(function(e) {
+                e.preventDefault();
+                $(this).hide();
+                var opts = {
+                  lines: 12, // The number of lines to draw
+                  length: 7, // The length of each line
+                  width: 5, // The line thickness
+                  radius: 10, // The radius of the inner circle
+                  color: '#fff', // #rbg or #rrggbb
+                  speed: 1, // Rounds per second
+                  trail: 66, // Afterglow percentage
+                  shadow: true // Whether to render a shadow
+                };
+                $("#spin").show().spin(opts);
+            });
+
+        });
+
+        setTimeout(function(){ $("#spin").spin(false); }, 3000);
+
+    </script>
+ -->
+
+
+
+
+   <div class="nav-wrap" id="link">
+        <!-- <a class="spinner-link" href="/cs008">About Us</a> -->
+    <div id= "spin" style="display:none;"></div>
+    <img src="uvmlogo2014.svg">
+    <nav>
+        <ol>
+            <?php
+            if ($path_parts['filename'] == "index") {
+                 print '<li class="active">Home</li>';
+            }else{
+                 print '<li><a href="index.php">Home</a></li>';
+            }
+            if ($path_parts['filename'] == "courseForm") {
+                 print '<li class="active">Select Courses</li>';
+            }else{
+                print '<li><a href="courseForm.php">Select Courses</a></li>';
+            }
+              if ($path_parts['filename'] == "schedule") {
+                 print '<li class="active">View Schedule</li>';
+            }else{
+                print '<li><a href="schedule.php">View Schedule</a></li>';
+            }
+
+              if ($path_parts['filename'] == "profile") {
+                 print '<li class="active">Profile</li>';
+            }else{
+                print '<li><a href="profile.php">Profile</a></li>';
+            }
+         ?>
+        </ol>
+    </nav>
+</div>
+
+
+    <!-- ####################################################################################################### -->
+
+
         <?php
         $debug = false;
 
@@ -129,7 +225,6 @@ require_once('lib/custom-functions.php');
     <?php
     $username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
     print '<body id="' . $path_parts['filename'] . '">';
-    include "nav.php";
     ?>
 
 

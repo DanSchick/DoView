@@ -1,64 +1,13 @@
 <?php
 include "top.php";
 
-// $test = "SELECT * FROM tblCourses INNER JOIN tblStudentCourses ON tblCourses.fnkCourseId = tblStudentCourses.fnkCourseId WHERE tblStudentCourses.fnkNetId = 'dschick'";
-// print "<pre>";
-// // $data = array("%CS124%");
-// $select = $thisDatabaseReader->select($test, 0, 1, 0, 2);
-
-    $test = "SELECT * FROM tblCourses INNER JOIN tblStudentCourses ON tblCourses.fnkCourseId = tblStudentCourses.fnkCourseId WHERE tblStudentCourses.fnkNetId = ?";
-    $data = array($username);
-
-    $select = $thisDatabaseReader->select($test, $data, 1, 0, 0, 0);
-
-var_dump($select);
-print "</pre>";
-
-
-
 ?>
-
-<div class='contain'>
-    <div class='c2'>
-        <div class'c3'>
-        </div>
-    </div>
-</div>
+<body>
 
 
-<form action='' method='post'>
-        <p><label>Class:</label><input type='text' name='className' value='' class='auto'></p>
-</form>
-<div id='append'></div>
+        <img id='center-logo' src='doView_4.png' alt='doView Logo'>
 
-<script type="text/javascript">
+        <p id ='center-text'> <a id='center-text' href="courseForm.php">Select Courses</a> </p>
+        <p id ="center-text"> <a id="center-text" href='profile.php'> Edit Profile </a> </p>
 
-$(document).ready(function() {
-    var selectArr = <?php echo json_encode($select);?>;
-    console.log(selectArr);
-
-    for(var i=0;i<selectArr.length;i++){
-
-    }
-
-});
-
-
-$(function() {
-    var availableTutorials = [
-               "ActionScript",
-               "Boostrap",
-               "C",
-               "C++",
-            ];
-    // autocomplete function
-    $(".auto").autocomplete({
-        source: "search.php",
-        minLength: 1,
-        appendTo: "#append"
-    });
-
-});
-
-
-</script>
+    </body>

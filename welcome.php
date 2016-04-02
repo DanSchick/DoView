@@ -3,7 +3,6 @@ include 'top.php';
 $queryOne = 'SELECT; * FROM tblStudents WHERE pmkNetId=?';
 $data = array($username);
 $q = $thisDatabaseReader->select($queryOne, $data, 1, 0);
-print_r($q);
 if(empty($q)){
   $insert = "INSERT INTO `DSCHICK_Registration`.`tblStudent` (`fldFirstName`, `fldLastName`, `fldMajor`, `fldMinor`, `fldYear`, `pmkNetID`) VALUES ('', '', '', '', '', ?)";
   $data = array($username);
@@ -78,7 +77,7 @@ if (isset($_POST["btnSubmit"])) {
         $updateData = array($_POST['txtStudentFirstName'], $_POST['txtStudentLastName'], $_POST['txtStudentMajor'], $_POST['txtStudentMinor'], $_POST['intStartYear'], $username);
         // $updater = $thisDatabaseWriter->update($updateQuery, $updateData, 1, 0, 0, 0);
         $updater = $thisDatabaseWriter->update($updateQuery, $updateData, 1, 0, 0, 0);
-        //print '<script>window.location.replace("profile.php");</script>';
+        print '<script>window.location.replace("courseForm.php");</script>';
         die();
     }
 }
