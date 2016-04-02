@@ -10,6 +10,12 @@ require_once('lib/custom-functions.php');
         <meta name="author" content="Seal Team 6">
         <meta name="description" content="Registration">
 
+        <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700|Crimson+Text:400,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <link rel="stylesheet" href="reset.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="courseform.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="DoView.css" type="text/css" media="screen" title="screen">
 
         <!--[if lt IE 9]>
         <script src="//html5shim.googlecode.com/sin/trunk/html5.js"></script>
@@ -122,9 +128,8 @@ require_once('lib/custom-functions.php');
     <!-- **********************     Body section      ********************** -->
     <?php
     $username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
-    print($username);
-    //print '<body id="' . $path_parts['filename'] . '">';
-
+    print '<body id="' . $path_parts['filename'] . '">';
+    include "nav.php";
     ?>
 
 
