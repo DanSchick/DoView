@@ -11,7 +11,7 @@ $user = $thisDatabaseReader->select($query, $data, 1, 0, 0, 0);
         <h1>Info<a href="welcome.php" data-ajax="false"><button>Edit</button></a></h1>
         <ul>
             <li>First Name: <?php echo $user[0]['fldFirstName'];?></li>
-            <li>Laste Name: <?php echo $user[0]['fldLastName'];?></li>
+            <li>Last Name: <?php echo $user[0]['fldLastName'];?></li>
             <li>Major: <?php echo $user[0]['fldMajor'];?></li>
             <li>Minor: <?php echo $user[0]['fldMinor'];?></li>
             <li>Starting Year:<?php echo $user[0]['fldYear']?></li>
@@ -19,9 +19,6 @@ $user = $thisDatabaseReader->select($query, $data, 1, 0, 0, 0);
     </aside>
 
 </article>
-<?php
-include 'footer.php';
-?>
 </body>
 </html>
 

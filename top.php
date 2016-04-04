@@ -16,6 +16,7 @@ require_once('lib/custom-functions.php');
         <link rel="stylesheet" href="reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="custom.css" type="text/css" media="screen">
         <link rel="stylesheet" href="DoView.css" type="text/css" media="screen" title="creative">
+        <link rel="shortcut icon" href="doView_3-1.png">
 
         <!--[if lt IE 9]>
         <script src="//html5shim.googlecode.com/sin/trunk/html5.js"></script>
@@ -84,7 +85,7 @@ require_once('lib/custom-functions.php');
    <div class="nav-wrap" id="link">
         <!-- <a class="spinner-link" href="/cs008">About Us</a> -->
     <div id= "spin" style="display:none;"></div>
-    <img src="uvmlogo2014.svg">
+    <a href='index.php'><img src="uvmlogo2014.svg"></a>
     <nav>
         <ol>
             <?php

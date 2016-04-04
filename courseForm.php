@@ -1,10 +1,5 @@
 <?php
 include "top.php";
-
-
-
-
-
 if($_GET){
     $delete = "DELETE FROM tblStudentCourses WHERE fnkNetId = ?";
     $data = array($username);
@@ -16,15 +11,14 @@ if($_GET){
             print_r($data);
             $insert = $thisDatabaseWriter->insert($q, $data, 0, 0, 0);
         }
-
     }
+    print '<script>window.location.replace("schedule.php");</script>';
     $q = "SELECT * FROM tblCourses WHERE fnkCourseId = ?";
     $data = array($courseCode);
     $select = $thisDatabaseReader->select($q, $data, 1, 0);
-
 }
 ?>
-<img src="doView_4.png">
+<img id="logo" src="doView_4.png">
 <form>
 
     <div id="sections">
@@ -51,15 +45,14 @@ if($_GET){
     <a href="#" id="addsection">Add Class</a>
 </form>
 
+</article>
 </body>
 
-</article>
+
 
 
 
 <script type="text/javascript">
-
-
 $(document).ready(function() {
     var counter = 1;
     var printErr = 1;
@@ -72,13 +65,6 @@ $(document).ready(function() {
             printErr = 0;
             $('.wrapper').append("You've reached the 5 class limit");
         }
-
     });
-
-
 });
-
 </script>
-
-
-

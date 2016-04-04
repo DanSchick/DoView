@@ -74,6 +74,10 @@ body {
 
 }
 
+input#btnSubmit:hover {
+    border: 1px solid #353535;
+}
+
 form {
     text-align: center;
     padding-left: 40px;
@@ -134,7 +138,13 @@ nav ol li {
 
 nav ol li a {
     text-decoration: none;
-    color: #fff;
+    color: #FFFDEA;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+nav ol li a:hover {
+    color: #ec9123;
 }
 
 header img{
@@ -145,6 +155,42 @@ header img{
 
 /*end header CSS*/
 
+/*index.php style*/
+
+#center-logo {
+    width: 50%;
+    height: 50%;
+    display: block;
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#center-text {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #E57F1C;
+}
+
+p#center-text a {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+    font-size: 21px;
+}
+
+body {
+    background-color: #FFFDEA;
+}
+
+#foot {
+    background-color: #0D5F3A;
+}
+
+/*end index style*/
 
 /*Schedule.php body level style*/
 
@@ -164,7 +210,7 @@ body#schedule {
 .hero-bar {padding: 12px 28px 15px 28px;text-align: center;height: 90px;}
 
 .internal-nav {
-    display: inline-block;
+    display: none;
     margin-left: auto;
     margin-right: auto;
     color: #ec9123;
@@ -205,6 +251,7 @@ body#schedule {
     margin-right: auto;
     border-bottom: 1px solid #ec9123;
     padding-left: 20px;
+    color:#353535;
 }
 
 .week h2 {
@@ -212,36 +259,78 @@ body#schedule {
 }
 
 .week p {
-    max-width: 28px;
+    max-width: 40px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ec9123;
+    padding: 6px 1px 0px 1px;
+    border: 1px solid #353535;
 }
 
+footer{display:none;}
 
-div#mon1 [id="830"] {
-    background-color: #ffeff3;
-}
+
 
 .Monday, .Tuesday, .Wednesday, .Thursday, .Friday {
     display: inline-block;
     text-align: center;
-    max-width: 240px;
+    max-width: 230px;
     height:400px;
     border-left: 1px solid #ec9123;
     border-right: 1px solid #ec9123;
     vertical-align:top;
-    font-size:3px;
+    font-size:6px;
+}
+
+.week .Tuesday p {
+    background-color: #c1cd23;
+}
+
+.week .Wednesday p {
+    background-color: #1ea2f2;
+    
+}
+
+.week .Thursday p {
+    background-color: #e8c583;
+}
+
+.week .Friday p {
+    background-color: #FFE224;
+}
+
+.ti {
+    width: 40px;
+    display: inline-block;
+    font-size: 12px;
+    padding-top: 20px;
+}
+
+.time {
+    height: 24px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+}
+
+.week .ti p {
+    max-width: 35px;
+    background-color: initial!important;
+    border:none;
 }
 
 .c {
     height: 36px;
-    width: 47px;
+    width: 44px;
     margin: 0px!important;
-    display:block;
+    display: block;
 }
 
 #mon1, #mon2, #mon3, #mon4, #mon5,  #tue1, #tue2, #tue3, #tue4, #tue5, #wends1, #wends2, #wends3, #wends4, #wends5, #thurs1, #thurs2, #thurs3, #thurs4, #thurs5, #fri1, #fri2, #fri3, #fri4, #fri5 {
-    width: 47px;
+    width: 42px;
     display: inline-block;
     margin: 0px!important;
+    vertical-align: top;
     padding-top: 20px;
 }
 
@@ -270,3 +359,119 @@ div#fri1 {
 
 
 /*end Schedule CSS*/
+
+/*Course Form CSS*/
+
+img#logo {
+    width: 532px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+legend {
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+input#btnSubmit {
+    text-decoration: none;
+}
+
+a#addsection {
+    text-decoration: none;
+    color: #ec9123;
+}
+
+a#addsection:hover {
+    color: #88b2df;
+}
+
+.section {
+    font-size: 24px;
+}
+
+fieldset.button {
+    font-size: 24px;
+    height: 30px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+body#courseForm form fieldset.button {
+    margin-bottom: 30px;
+}
+/*end course form*/
+
+/*profile.php*/
+
+article {
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    font-size: 24px;
+}
+
+
+aside.petInfo h1 a {
+    margin-left: 10px;
+}
+
+aside.petInfo ul li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+aside.petInfo h1 {
+    margin-bottom: 5px;
+}
+
+form#frmRegister {
+    margin-top: 100px;
+    padding-left: 0px;
+}
+
+fieldset.info h1 {
+    margin-bottom: 15px;
+}
+
+fieldset.info {
+    font-size: 24px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input#txtStudentFirstName {}
+
+fieldset.info input {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 150px;
+    height: 20px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ec9123;
+}
+
+.info label.required {
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+}
+
+input#btnSubmit {
+    height: 30px;
+    border: none;
+    margin-top: 15px;
+}
+/*end profile.php*/

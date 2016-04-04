@@ -39,15 +39,15 @@
         for(var j=0;j<days.length;j++){
             console.log("class: " + section[2] + " day: " + days[j] + " start time: " + startTime);
             if(days[j] == 'M'){
-                $('.Monday').find('#mon' + count).find('#' + startTime).append("<p class='classinfo' id=" + section['fldCRN'] +">" + section[2] + "</p>");
+                $('.Monday').find('#mon' + count).find('#' + startTime).append("<p class='classinfo " + section['fnkCourseId'] + "' id=" + section['fldCRN'] +">" + section['fldStartTime'] + "<br>" + section['fldCRN'] + "<br>" + section[2] + "</p>");
             } else if(days[j] == 'T'){
-                $('.Tuesday').find('#tue' + count).find('#' + startTime).append("<p class='classinfo' id=" + section['fldCRN'] +">" + section[2] + "</p>");
+                $('.Tuesday').find('#tue' + count).find('#' + startTime).append("<p class='classinfo " + section['fnkCourseId'] + "' id=" + section['fldCRN'] +">" + section['fldStartTime'] + "<br>" + section['fldCRN'] + "<br>" + section[2] + "</p>");
             } else if(days[j] == 'W'){
-                $('.Wednesday').find('#wends' + count).find('#' + startTime).append("<p class='classinfo' id=" + section['fldCRN'] +">" + section[2] + "</p>");
+                $('.Wednesday').find('#wends' + count).find('#' + startTime).append("<p class='classinfo " + section['fnkCourseId'] + "' id=" + section['fldCRN']+">" + section['fldStartTime'] + "<br>" + section['fldCRN'] + "<br>" +">" + section[2] + "</p>");
             } else if(days[j] == 'R'){
-                $('.Thursday').find('#thurs' + count).find('#' + startTime).append("<p class='classinfo' id=" + section['fldCRN'] +">" + section[2] + "</p>");
+                $('.Thursday').find('#thurs' + count).find('#' + startTime).append("<p class='classinfo " + section['fnkCourseId'] + "' id=" + section['fldCRN'] +">"+ section['fldStartTime'] + "<br>" + section['fldCRN'] + "<br>" +">" + section[2] + "</p>");
             } else if(days[j] == 'F'){
-                $('.Friday').find('#fri' + count).find('#' + startTime).append("<p class='classinfo' id=" + section['fldCRN'] +">" + section[2] + "</p>");
+                $('.Friday').find('#fri' + count).find('#' + startTime).append("<p class='classinfo " + section['fnkCourseId'] + "' id=" + section['fldCRN']+">" + section['fldStartTime'] + "<br>" + section['fldCRN'] + "<br>" + ">" + section[2] + "</p>");
             }
 
         }
@@ -60,7 +60,23 @@
         var columnId = column.attr('id').slice(-1);
         console.log(columnId);
         var CRN = $(event.target).attr('id');
-        console.log($('.mon'+columnId).find("div").find('p').attr('class'));
+        console.log($('.mon'+columnId).find("div > p").attr('class'));
+        console.log($('.mon'+columnId).find("*").find("p").attr('class'));
+        // console.log($('.mon'+columnId).find("div").find('p'));
+
+        var classes = $(event.target).attr('class');
+        var code = classes.split(" ");
+        console.log(code[1]);
+        // console.log($('.' + code[1]));
+        var sameClasses = $('.' + code[1]);
+        console.log(sameClasses);
+        for(var i=0;i<sameClasses.length;i++){
+            if($(sameClasses[i]).attr('id') != CRN){
+                console.log('flag');
+                $(sameClasses[i]).css('display', 'none');
+            }
+        }
+
 
     });
 });
@@ -78,6 +94,19 @@
     <div class="week first">
         <div class="TitleInfo">
             <h1>Current Week</h1>
+        </div>
+        <div class="ti">
+                <div class="time"><p>8 AM</p></div>
+                <div class="time"><p>9 AM</p></div>
+                <div class="time"><p>10 AM</p></div>
+                <div class="time"><p>11 AM</p></div>
+                <div class="time"><p>12 PM</p></div>
+                <div class="time"><p>1 PM</p></div>
+                <div class="time"><p>2 PM</p></div>
+                <div class="time"><p>3 PM</p></div>
+                <div class="time"><p>4 PM</p></div>
+                <div class="time"><p>5 PM</p></div>
+                <div class="time"><p>6 PM</p></div>
         </div>
         <div class="Monday">
                 <h2>Monday</h2>
