@@ -11,9 +11,25 @@
     ?>
 
 <script>
+    function printInfo(section){
+            // build the string we need
+            var returnStr = "<p class='classinfo " + section['fnkCourseId'] + "' id='" + section['fldCRN'] + "' ";
+            returnStr += "data-lab=" + section['fldType'] + ">";
+            returnStr += section['fldStartTime'] + "<br>" + section['fldCRN'] + "<br>" + section[2] ;
+            // print lab if class IS lab
+            if(section['fldType'] == "LAB"){
+                    returnStr += "<br>" + section['fldType'] + "</p>";
+            } else {
+                    returnStr += "</p>";
+            }
+            return returnStr;
+    }
+
     $(document).ready(function() {
     var classes = <?php echo json_encode($select);?>;
     console.log(classes);
+    var colors = ['#ec9123', '#c1cd23', '#1ea2f2', '#e8c583', '#FFE224'];
+    var classCodes = [];
     var startTime;
     var section;
     var count = 0;
@@ -21,45 +37,50 @@
 
     for(var i=0;i<classes.length;i++){
         if(classes[i]['fnkCourseId'] != prevClass){
+                classCodes.push(classes[i]['fnkCourseId']);
                 count += 1;
                 console.log("flag");
         }
         section = classes[i];
+        section['color'] = colors[i];
         prevClass = section['fnkCourseId'];
-        startTime = section[8];
+        startTime = section['fldStartTime'];
         if(startTime.charAt(0) == "0"){
             startTime = startTime.substring(1);
         }
         startTime = startTime.split(":");
         startTime = startTime[0] + startTime[1];
 
-        var days = section[10].split(" ");
+        var days = section['fldDays'].split(" ");
         console.log("Days: ");
 
         for(var j=0;j<days.length;j++){
-            console.log("class: " + section[2] + " day: " + days[j] + " start time: " + startTime);
             if(days[j] == 'M'){
-                $('.Monday').find('#mon' + count).find('#' + startTime).append("<p class='classinfo " + section['fnkCourseId'] + "' id=" + section['fldCRN'] +">" + section['fldStartTime'] + "<br>" + section['fldCRN'] + "<br>" + section[2] + "</p>");
+                $('.Monday').find('#mon' + count).find('#' + startTime).append(printInfo(section));
             } else if(days[j] == 'T'){
-                $('.Tuesday').find('#tue' + count).find('#' + startTime).append("<p class='classinfo " + section['fnkCourseId'] + "' id=" + section['fldCRN'] +">" + section['fldStartTime'] + "<br>" + section['fldCRN'] + "<br>" + section[2] + "</p>");
+                $('.Tuesday').find('#tue' + count).find('#' + startTime).append(printInfo(section));
             } else if(days[j] == 'W'){
-                $('.Wednesday').find('#wends' + count).find('#' + startTime).append("<p class='classinfo " + section['fnkCourseId'] + "' id=" + section['fldCRN']+">" + section['fldStartTime'] + "<br>" + section['fldCRN'] + "<br>" +">" + section[2] + "</p>");
+                $('.Wednesday').find('#wends' + count).find('#' + startTime).append(printInfo(section));
             } else if(days[j] == 'R'){
-                $('.Thursday').find('#thurs' + count).find('#' + startTime).append("<p class='classinfo " + section['fnkCourseId'] + "' id=" + section['fldCRN'] +">"+ section['fldStartTime'] + "<br>" + section['fldCRN'] + "<br>" +">" + section[2] + "</p>");
+                $('.Thursday').find('#thurs' + count).find('#' + startTime).append(printInfo(section));
             } else if(days[j] == 'F'){
-                $('.Friday').find('#fri' + count).find('#' + startTime).append("<p class='classinfo " + section['fnkCourseId'] + "' id=" + section['fldCRN']+">" + section['fldStartTime'] + "<br>" + section['fldCRN'] + "<br>" + ">" + section[2] + "</p>");
+                $('.Friday').find('#fri' + count).find('#' + startTime).append(printInfo(section));
             }
-
         }
 
-
     }
+        for(var i=0;i<classCodes.length;i++){
+                console.log('len: ' + classCodes.length + 'i: ' + i);
+                $('.' + classCodes[i]).attr('style', "background-color: " + colors[i] + "; ");
+
+        }
     $('.classinfo').click(function(event){
         var firstParent = $(event.target).parent();
         var column = firstParent.parent();
         var columnId = column.attr('id').slice(-1);
         console.log(columnId);
         var CRN = $(event.target).attr('id');
+
         console.log($('.mon'+columnId).find("div > p").attr('class'));
         console.log($('.mon'+columnId).find("*").find("p").attr('class'));
         // console.log($('.mon'+columnId).find("div").find('p'));
@@ -71,7 +92,7 @@
         var sameClasses = $('.' + code[1]);
         console.log(sameClasses);
         for(var i=0;i<sameClasses.length;i++){
-            if($(sameClasses[i]).attr('id') != CRN){
+            if($(sameClasses[i]).attr('id') != CRN && $(sameClasses[i]).attr('data-lab') == $(event.target).attr('data-lab')){
                 console.log('flag');
                 $(sameClasses[i]).css('display', 'none');
             }

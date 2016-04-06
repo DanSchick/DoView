@@ -9,7 +9,7 @@ include "top.php";
 
 <script>
     $(window).load(function() {
-      $('#splashscreen').fadeOut(11500,"swing");
+      $('#splashscreen').fadeOut(5000,"swing");
     });
 
   </script>

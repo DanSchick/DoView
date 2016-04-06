@@ -224,8 +224,8 @@ require_once('lib/custom-functions.php');
 
     <!-- **********************     Body section      ********************** -->
     <?php
-    $username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
     print '<body id="' . $path_parts['filename'] . '">';
+    $username = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
     ?>
 
 

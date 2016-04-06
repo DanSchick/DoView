@@ -1,6 +1,6 @@
 /*reset CSS*/
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -14,8 +14,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -26,7 +26,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -263,7 +263,7 @@ body#schedule {
     height: 100%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #ec9123;
+    /*background-color: #ec9123; */
     padding: 6px 1px 0px 1px;
     border: 1px solid #353535;
 }
@@ -284,20 +284,20 @@ footer{display:none;}
 }
 
 .week .Tuesday p {
-    background-color: #c1cd23;
+    /*background-color: #c1cd23;*/
 }
 
 .week .Wednesday p {
-    background-color: #1ea2f2;
-    
+    /*background-color: #1ea2f2;*/
+
 }
 
 .week .Thursday p {
-    background-color: #e8c583;
+    /*background-color: #e8c583;*/
 }
 
 .week .Friday p {
-    background-color: #FFE224;
+    /*background-color: #FFE224;*/
 }
 
 .ti {
@@ -475,3 +475,10 @@ input#btnSubmit {
     margin-top: 15px;
 }
 /*end profile.php*/
+
+
+
+/* search functionality */
+#classListDiv {
+    margin-left: 30%;
+}
